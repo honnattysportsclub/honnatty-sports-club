@@ -1,0 +1,339 @@
+import Image from "next/image";
+export default function Home() {
+  return (
+<div className="min-h-screen text-white bg-gradient-to-br from-[#062d12] via-[#0b5b28] to-[#d8b11c]"><div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,215,0,0.15),transparent_60%)]"></div>
+      {/* Navbar */}
+      <nav className="flex justify-between items-center px-10 py-5 bg-[#083d1f] shadow-lg">
+
+        <div className="flex items-center gap-3">
+          
+  <Image
+    src="/logo-new.png"
+    alt="Honnatty Logo"
+    width={55}
+    height={55}
+  />
+
+  <div>
+    <h1 className="text-yellow-400 text-2xl font-extrabold leading-none">
+      HONNATTY 
+    </h1>
+    <p className="text-yellow text-sm tracking-[0.3em]">
+      SPORTS CLUB
+    </p>
+  </div>
+</div>
+
+        <ul className="flex gap-8 font-medium">
+          <li className="hover:text-yellow-400 cursor-pointer">
+  <a href="#">Home</a>
+</li>
+
+<li className="hover:text-yellow-400 cursor-pointer">
+  <a href="#about">About</a>
+</li>
+
+<li className="hover:text-yellow-400 cursor-pointer">
+  <a href="#gallery">Gallery</a>
+</li>
+
+<li className="hover:text-yellow-400 cursor-pointer">
+  <a href="#team">Teams</a>
+</li>
+
+<li className="hover:text-yellow-400 cursor-pointer">
+  <a href="#contact">Contact</a>
+</li>
+        </ul>
+
+      </nav>
+
+      {/* Hero Section */}
+<section className="relative flex flex-col items-center justify-center text-center min-h-[90vh] overflow-hidden"><div className="p-4 rounded-full bg-yellow-400/10 shadow-[0_0_50px_rgba(255,215,0,0.35)]">
+ 
+  <Image
+  src="/logo-new.png"
+  alt="Background Logo"
+  width={900}
+  height={900}
+  className="absolute left-2 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none"
+/>
+ <div className="relative mb-6">
+  <div className="absolute inset-0 rounded-full bg-yellow-400/20 blur-3xl scale-150"></div>
+
+  <Image
+    src="/logo-new.png"
+    alt="Honnatty Logo"
+    width={150}
+    height={150}
+    className="relative z-10"
+  />
+</div>
+</div>
+
+        <h1 className="text-7xl font-extrabold text-yellow-400">
+          Honnatty
+        </h1>
+
+        <h2 className="text-7xl font-extrabold text-yellow-400">
+          Sports Club
+        </h2>
+
+        <p className="mt-6 text-2xl italic">
+          Where Passion Meets Excellence
+        </p>
+
+        <p className="mt-4 max-w-2xl text-gray-300">
+          Building champions through teamwork, dedication,
+          discipline and sportsmanship since generations.
+        </p>
+
+        <div className="flex gap-6 mt-10">
+
+          <button className="bg-yellow-400 text-black px-8 py-3 rounded-xl font-semibold hover:scale-105 transition">
+            Our Team
+          </button>
+
+          <button className="border-2 border-yellow-400 px-8 py-3 rounded-xl hover:bg-yellow-400 hover:text-black transition">
+            Gallery
+          </button>
+
+        </div>
+
+      </section>
+{/* About Section */}
+
+<section
+  id="about"
+className="bg-gradient-to-b from-white via-yellow-50 to-green-50 text-green-900 py-28 px-8">
+  <div className="max-w-6xl mx-auto">
+
+    <h2 className="text-6xl font-extrabold text-center">
+      About Honnatty Sports Club
+    </h2>
+<div className="mt-5 mb-8"></div>
+    <p className="text-center text-2xl leading-10 text-gray-700 max-w-3xl mx-auto">
+      Honnatty Sports Club is more than just a sports organization.
+      We are a family united by passion, discipline, teamwork,
+      and the spirit of our village.
+    </p>
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+<div className="bg-yellow-300  rounded-2xl shadow-lg p-8 text-center hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(234,179,8,0.35)] transition duration-300">
+  <div className="text-6xl mb-4">❤️</div>
+  <h3 className="text-2xl font-bold text-green-900 mb-3">Family</h3>
+  <p className="text-gray-600 leading-7">
+    More than a team—we are one big family.
+  </p>
+</div>
+
+<div className="bg-yellow-300  rounded-2xl shadow-lg p-8 text-center hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(234,179,8,0.35)] transition duration-300">
+  <div className="text-6xl mb-4">🤝</div>
+  <h3 className="text-2xl font-bold text-green-900 mb-3">Teamwork</h3>
+  <p className="text-gray-600 leading-7">
+    Together we play, together we grow, together we win.
+  </p>
+</div>
+
+<div className="bg-yellow-300  rounded-2xl shadow-lg p-8 text-center hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(234,179,8,0.35)] transition duration-300">
+  <div className="text-6xl mb-4">🛡️</div>
+  <h3 className="text-2xl font-bold text-green-900 mb-3">Discipline</h3>
+  <p className="text-gray-600 leading-7">
+Training with purpose, playing with respect, and learning from every match.  </p>
+</div>
+
+<div className="bg-yellow-300 rounded-2xl shadow-lg p-8 text-center hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(234,179,8,0.35)] transition duration-300">
+  <div className="text-6xl mb-4">🏆</div>
+  <h3 className="text-2xl font-bold text-green-900 mb-3">Excellence</h3>
+  <p className="text-gray-600 leading-7">
+    Always striving to become better than we were yesterday.
+  </p>
+</div>
+</div>
+  </div>
+  <div className="h-24 bg-white"></div>
+  {/* Teams Section */}
+<section
+  id="teams"
+  className="bg-green-900 text-white py-25 px-8"
+>
+  <div className="max-w-7xl mx-auto">
+
+    <h2 className="text-5xl font-extrabold text-center">
+      Our Team
+    </h2>
+
+    <div className="w-24 h-1 bg-yellow-400 rounded-full mx-auto mt-5 mb-8"></div>
+
+    <p className="text-center text-green-100 text-xl mb-16">
+      The players who proudly represent Honnatty Sports Club.
+    </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
+        <div className="h-80 bg-gray-200 flex items-center justify-center text-gray-500">
+          Player Photo
+        </div>
+
+        <div className="p-6 text-center">
+          <h3 className="text-2xl font-bold">Captain</h3>
+          <p className="text-gray-600 mt-2">Coming Soon</p>
+        </div>
+      </div>
+
+      <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
+        <div className="h-80 bg-gray-200 flex items-center justify-center text-gray-500">
+          Player Photo
+        </div>
+
+        <div className="p-6 text-center">
+          <h3 className="text-2xl font-bold">Player</h3>
+          <p className="text-gray-600 mt-2">Coming Soon</p>
+        </div>
+      </div>
+
+      <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
+        <div className="h-80 bg-gray-200 flex items-center justify-center text-gray-500">
+          Player Photo
+        </div>
+
+        <div className="p-6 text-center">
+          <h3 className="text-2xl font-bold">Player</h3>
+          <p className="text-gray-600 mt-2">Coming Soon</p>
+        </div>
+      </div>
+
+      <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
+        <div className="h-80 bg-gray-200 flex items-center justify-center text-gray-500">
+          Player Photo
+        </div>
+
+        <div className="p-6 text-center">
+          <h3 className="text-2xl font-bold">Player</h3>
+          <p className="text-gray-600 mt-2">Coming Soon</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+</section>
+{/* Gallery Section */}
+<section
+  id="gallery"
+  className="bg-gradient-to-b from-green-30 to-white py-24 px-8"
+>
+  <div className="max-w-7xl mx-auto">
+
+    <h2 className="text-5xl font-extrabold text-center text-green-900">
+      Gallery
+    </h2>
+
+    <div className="w-24 h-1 bg-yellow-500 rounded-full mx-auto mt-5 mb-8"></div>
+
+    <p className="text-center text-gray-600 text-xl mb-16">
+      Moments that define Honnatty Sports Club.
+    </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <div className="bg-yellow-50 border-2 border-yellow-200 rounded-3xl h-72 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center justify-center">
+
+  <div className="text-6xl mb-4">📸</div>
+
+  <p className="text-green-900 font-semibold">
+    Tournament Photo
+  </p>
+
+</div>
+
+      <div className="bg-yellow-50 border-2 border-yellow-200 rounded-3xl h-72 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center justify-center">
+
+  <div className="text-6xl mb-4">📸</div>
+
+  <p className="text-green-900 font-semibold">
+    Tournament Photo
+  </p>
+
+</div>
+
+      <div className="bg-yellow-50 border-2 border-yellow-200 rounded-3xl h-72 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center justify-center">
+
+  <div className="text-6xl mb-4">📸</div>
+
+  <p className="text-green-900 font-semibold">
+    Tournament Photo
+  </p>
+
+</div>
+
+    </div>
+
+  </div>
+  {/* Footer */}
+
+<footer className="bg-green-950 text-white py-16">
+  <div className="max-w-7xl mx-auto px-8">
+
+    <div className="grid md:grid-cols-3 gap-10">
+
+      {/* Club */}
+      <div>
+        <h3 className="text-3xl font-bold text-yellow-400">
+          Honnatty Sports Club
+        </h3>
+
+        <p className="mt-4 text-gray-300 leading-8">
+          Building champions through teamwork,
+          discipline, family, and excellence.
+        </p>
+      </div>
+
+      {/* Quick Links */}
+      <div>
+        <h3 className="text-2xl font-bold mb-4">
+          Quick Links
+        </h3>
+
+        <ul className="space-y-3 text-gray-300">
+          <li>Home</li>
+          <li>About</li>
+          <li>Our Team</li>
+          <li>Gallery</li>
+        </ul>
+      </div>
+
+      {/* Contact */}
+      <div>
+        <h3 className="text-2xl font-bold mb-4">
+          Contact
+        </h3>
+
+        <p className="text-gray-300">
+          📍 Honnatty, The Nilgiris
+        </p>
+
+        <p className="text-gray-300 mt-3">
+          📧 Coming Soon
+        </p>
+
+        <p className="text-gray-300 mt-3">
+          📱 Instagram Coming Soon
+        </p>
+
+      </div>
+
+    </div>
+
+    <div className="border-t border-green-800 mt-12 pt-8 text-center text-gray-400">
+      © 2026 Honnatty Sports Club. All Rights Reserved.
+    </div>
+
+  </div>
+</footer>
+</section>
+    </div>
+  );
+}
