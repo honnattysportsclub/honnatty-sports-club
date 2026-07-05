@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 export default function Home() {
   return (
@@ -97,9 +98,11 @@ export default function Home() {
     Gallery
   </button>
 
-  <button className="w-52 border border-yellow-500 text-white py-3 rounded-lg">
+  <Link href="/tournaments">
+  <button className="w-52 border border-yellow-500 rounded-xl py-4 hover:bg-yellow-500 hover:text-black transition">
     Upcoming Tournaments
   </button>
+</Link>
 </div>
 
       </section>
