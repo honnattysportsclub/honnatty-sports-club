@@ -88,17 +88,19 @@ export default function Home() {
           discipline and sportsmanship since generations.
         </p>
 
-        <div className="flex gap-6 mt-10">
+        <div className="flex gap-4 mt-8">
+  <button className="w-52 bg-yellow-500 text-black py-3 rounded-lg font-semibold">
+    Our Team
+  </button>
 
-          <button className="bg-yellow-400 text-black px-8 py-3 rounded-xl font-semibold hover:scale-105 transition">
-            Our Team
-          </button>
+  <button className="w-52 border border-yellow-500 text-white py-3 rounded-lg">
+    Gallery
+  </button>
 
-          <button className="border-2 border-yellow-400 px-8 py-3 rounded-xl hover:bg-yellow-400 hover:text-black transition">
-            Gallery
-          </button>
-
-        </div>
+  <button className="w-52 border border-yellow-500 text-white py-3 rounded-lg">
+    Upcoming Tournaments
+  </button>
+</div>
 
       </section>
 {/* About Section */}
