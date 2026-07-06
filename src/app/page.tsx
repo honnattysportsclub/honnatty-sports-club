@@ -1,56 +1,108 @@
+"use client";
+
+import { useState } from "react"
 import Link from "next/link";
 import Image from "next/image";
+import { Menu } from "lucide-react";
+
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
 <div className="min-h-screen text-white bg-gradient-to-br from-[#062d12] via-[#0b5b28] to-[#d8b11c]"><div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,215,0,0.15),transparent_60%)]"></div>
       {/* Navbar */}
-      <nav className="flex justify-between items-center px-10 py-5 bg-[#083d1f] shadow-lg">
-
-        <div className="flex items-center gap-3">
+<nav className="relative z-50 flex items-center justify-between px-4 py-4 md:px-10">
+        <div className="flex items-center gap-2">
           
   <Image
-    src="/logo-new.png"
-    alt="Honnatty Logo"
-    width={55}
-    height={55}
-  />
+  src="/logo-new.png"
+  alt="Honnatty Logo"
+  width={35}
+  height={35}
+  className="md:w-[55px] md:h-[55px]"
+ />
 
   <div>
-    <h1 className="text-yellow-400 text-2xl font-extrabold leading-none">
-      HONNATTY 
+<h1 className="hidden sm:block text-yellow-400 text-lg md:text-2xl font-extrabold">     HONNATTY 
     </h1>
-    <p className="text-yellow text-sm tracking-[0.3em]">
-      SPORTS CLUB
+<p className="hidden sm:block text-yellow-300 text-xs md:text-sm tracking-[0.3em]">     SPORTS CLUB
     </p>
   </div>
 </div>
 
-        <ul className="flex gap-8 font-medium">
+        <ul className="hidden md:flex gap-8 font-medium">
+          
           <li className="hover:text-yellow-400 cursor-pointer">
-  <a href="#">Home</a>
+  <a
+  href="#"
+  onClick={() => setMenuOpen(false)}
+  className="hover:text-yellow-400 transition-colors"
+>
+  Home
+</a>
 </li>
 
 <li className="hover:text-yellow-400 cursor-pointer">
-  <a href="#about">About</a>
+  <a
+  href="#about"
+  onClick={() => setMenuOpen(false)}
+  className="hover:text-yellow-400 transition-colors"
+>
+  About
+</a>
 </li>
 
 <li className="hover:text-yellow-400 cursor-pointer">
-  <a href="#gallery">Gallery</a>
+  <a
+  href="#gallery"
+  onClick={() => setMenuOpen(false)}
+  className="hover:text-yellow-400 transition-colors"
+>
+  Gallery
+</a>
 </li>
 
 <li className="hover:text-yellow-400 cursor-pointer">
-  <a href="#team">Teams</a>
+  <a
+  href="#teams"
+  onClick={() => setMenuOpen(false)}
+  className="hover:text-yellow-400 transition-colors"
+>
+  Teams
+</a>
 </li>
 
 <li className="hover:text-yellow-400 cursor-pointer">
-  <a href="#contact">Contact</a>
+  <a
+  href="#contact"
+  onClick={() => setMenuOpen(false)}
+  className="hover:text-yellow-400 transition-colors"
+>
+  Contact
+</a>
 </li>
         </ul>
-
+<button
+  className="md:hidden"
+  onClick={() => setMenuOpen(!menuOpen)}
+>
+  <Menu
+  size={28}
+  className="text-yellow-400 cursor-pointer"
+/>
+</button>
+{menuOpen && (
+  <div className="absolute top-16 right-4 bg-[#0b3d2e] rounded-1g shadow-lg p-4 flex flex-col gap-4 md:hidden z-50">
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#teams">Teams</a>
+    <a href="#contact">Contact</a>
+  </div>
+)}
       </nav>
 
       {/* Hero Section */}
-<section className="relative flex flex-col items-center justify-center text-center min-h-[90vh] overflow-hidden"><div className="p-4 rounded-full bg-yellow-400/10 shadow-[0_0_50px_rgba(255,215,0,0.35)]">
+<section className="relative z-0 flex flex-col items-center justify-center text-center min-h-[90vh] overflow-hidden"><div className="p-4 rounded-full bg-yellow-400/10 shadow-[0_0_50px_rgba(255,215,0,0.35)]">
  
   <Image
   src="/logo-new.png"
@@ -72,34 +124,34 @@ export default function Home() {
 </div>
 </div>
 
-        <h1 className="text-7xl font-extrabold text-yellow-400">
-          Honnatty
+<h1 className="text-5xl md:text-7xl font-extrabold text-yellow-400">
+            Honnatty
         </h1>
 
-        <h2 className="text-7xl font-extrabold text-yellow-400">
+        <h2 className="text-5xl md:text-7xl font-extrabold text-yellow-400">
           Sports Club
         </h2>
 
-        <p className="mt-6 text-2xl italic">
+        <p className="mt-6 text-lg md:text-2xl italic px-4">
           Where Passion Meets Excellence
         </p>
 
-        <p className="mt-4 max-w-2xl text-gray-300">
+        <p className="mt-4 max-w-2xl text-base md:text-xl text-gray-300 px-6">
           Building champions through teamwork, dedication,
           discipline and sportsmanship since generations.
         </p>
 
-        <div className="flex gap-4 mt-8">
-  <button className="w-52 bg-yellow-500 text-black py-3 rounded-lg font-semibold">
+        <div className="flex flex-col items-center text-center w-full max-w-sm mx-auto gap-4">
+  <button className="w-full md:w-52 border border-yellow-500 text-white py-3 rounded-lg">
     Our Team
   </button>
 
-  <button className="w-52 border border-yellow-500 text-white py-3 rounded-lg">
+  <button className="w-full md:w-52 border border-yellow-500 text-white py-3 rounded-lg">
     Gallery
   </button>
 
   <Link href="/tournaments">
-  <button className="w-52 border border-yellow-500 rounded-xl py-4 hover:bg-yellow-500 hover:text-black transition">
+  <button className="w-full md:w-52 border border-yellow-500 text-white py-3 rounded-lg">
     Upcoming Tournaments
   </button>
 </Link>
@@ -110,8 +162,8 @@ export default function Home() {
 
 <section
   id="about"
-className="bg-gradient-to-b from-white via-yellow-50 to-green-50 text-green-900 py-28 px-8">
-  <div className="max-w-6xl mx-auto">
+className="-mt-16 bg-gradient-to-b from-[#1b5e20] via-[#d9f0dc] to-white py-32">
+    <div className="max-w-6xl mx-auto">
 
     <h2 className="text-6xl font-extrabold text-center">
       About Honnatty Sports Club
@@ -311,7 +363,7 @@ Training with purpose, playing with respect, and learning from every match.  </p
       </div>
 
       {/* Contact */}
-      <div>
+      <div id="contact">
         <h3 className="text-2xl font-bold mb-4">
           Contact
         </h3>
