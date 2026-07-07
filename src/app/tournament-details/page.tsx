@@ -25,9 +25,8 @@ export default function TournamentDetails() {
 
       <p>👥 <strong>Category:</strong> Men's Open</p>
 
-      <p>🏐 <strong>Teams:</strong> 16 Teams Only</p>
 
-      <p>🏆 <strong>Prizes:</strong> Trophies & Certificates</p>
+      <p>🏆 <strong>Prizes:</strong> Trophies & Medals</p>
 
       <p>💰 <strong>Entry Fee:</strong> ₹1,200</p>
 
@@ -72,16 +71,18 @@ export default function TournamentDetails() {
 
     <p>🟢 <strong>Status:</strong> Registration Open</p>
 
-    <p>👥 <strong>Team Limit:</strong> 16 Teams Only</p>
-
-    <p>⏳ <strong>Deadline:</strong> 05-August-2026</p>
-
-    <p>📞 <strong>Contact:</strong> Vishal</p>
+    <p>📞 <strong>Contact:</strong> Dharshan (+91 63797 89130)</p>
+    <div className="flex items-center gap-3">
+  <span>💰</span>
+  <span>
+    <strong>Registration Fee:</strong> ₹300 
+  </span>
+</div>
 
   </div>
 
   <a
-  href="https://wa.me/919655429983?text=Hello%20Honnatty%20Sports%20Club!%0A%0AI%20would%20like%20to%20register%20my%20team%20for%20the%20Honnatty%20Open%20Volleyball%20Tournament%202026.%0A%0ATeam%20Name:%0ACaptain%20Name:%0AMobile%20Number:%0ANumber%20of%20Players:"
+  href="https://wa.me/916379789130?text=Hello%20Honnatty%20Sports%20Club!%0A%0AI%20would%20like%20to%20register%20my%20team%20for%20the%20Honnatty%20Open%20Volleyball%20Tournament%202026.%0A%0ATeam%20Name:%0ACaptain%20Name:%0AMobile%20Number:%0ANumber%20of%20Players:"
   target="_blank"
   rel="noopener noreferrer"
   className="mt-8 inline-block px-8 py-3 rounded-xl bg-green-500 hover:bg-green-600 transition text-white font-bold"

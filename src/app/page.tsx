@@ -136,25 +136,31 @@ export default function Home() {
           Where Passion Meets Excellence
         </p>
 
-        <p className="mt-4 max-w-2xl text-base md:text-xl text-gray-300 px-6">
+        <p className="mt-4 mb-4 max-w-2xl text-base md:text-xl text-gray-300 px-6">
           Building champions through teamwork, dedication,
           discipline and sportsmanship since generations.
         </p>
 
-        <div className="flex flex-col items-center text-center w-full max-w-sm mx-auto gap-4">
-  <button className="w-full md:w-52 border border-yellow-500 text-white py-3 rounded-lg">
-    Our Team
-  </button>
+        <div className="flex flex-col items-center text-center w-full max-w-sm mx-auto gap-5">
 
-  <button className="w-full md:w-52 border border-yellow-500 text-white py-3 rounded-lg">
-    Gallery
-  </button>
-
-  <Link href="/tournaments">
-  <button className="w-full md:w-52 border border-yellow-500 text-white py-3 rounded-lg">
+          <Link href="/tournaments" className="w-full">
+  <button className="w-full md:w-52 border border-yellow-500 text-white py-4 rounded-xl transition-all duration-300 hover:bg-yellow-500 hover:text-green-900 hover:scale-105">
     Upcoming Tournaments
   </button>
 </Link>
+  <Link href="#teams" className="w-full">
+  <button className="w-full md:w-52 border border-yellow-500 text-white py-4 rounded-xl">
+    Our Team
+  </button>
+</Link>
+
+  <Link href="#gallery" className="w-full">
+  <button className="w-full md:w-52 border border-yellow-500 text-white py-4 rounded-xl">
+    Gallery
+  </button>
+</Link>
+
+  
 </div>
 
       </section>
@@ -229,24 +235,34 @@ Training with purpose, playing with respect, and learning from every match.  </p
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
       <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
-        <div className="h-80 bg-gray-200 flex items-center justify-center text-gray-500">
-          Player Photo
-        </div>
+        <div className="relative h-80">
+  <Image
+    src="/team/captain.jpeg"
+    alt="Captain"
+    fill
+    className="object-cover"
+  />
+</div>
 
         <div className="p-6 text-center">
           <h3 className="text-2xl font-bold">Captain</h3>
-          <p className="text-gray-600 mt-2">Coming Soon</p>
+          <p className="text=xl text-gray-700 mt-2 font-bold">Dharshan</p>
         </div>
       </div>
 
       <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
-        <div className="h-80 bg-gray-200 flex items-center justify-center text-gray-500">
-          Player Photo
-        </div>
+        <div className="relative h-80">
+  <Image
+    src="/team/v captain.jpeg"
+    alt="Captain"
+    fill
+    className="object-cover"
+  />
+</div>
 
         <div className="p-6 text-center">
-          <h3 className="text-2xl font-bold">Player</h3>
-          <p className="text-gray-600 mt-2">Coming Soon</p>
+          <h3 className="text-2xl font-bold">Vice Captain</h3>
+          <p className="text-xl text-gray-700 mt-2 font-bold">Murali</p>
         </div>
       </div>
 
