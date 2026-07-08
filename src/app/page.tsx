@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react"
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "lucide-react";
-
+import { supabase } from "./lib/supabase";
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+
   return (
 <div className="min-h-screen text-white bg-gradient-to-br from-[#062d12] via-[#0b5b28] to-[#d8b11c]"><div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,215,0,0.15),transparent_60%)]"></div>
       {/* Navbar */}
@@ -253,7 +254,7 @@ Training with purpose, playing with respect, and learning from every match.  </p
       <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
         <div className="relative h-80">
   <Image
-    src="/team/v captain.jpeg"
+    src="/team/v-captain.jpeg"
     alt="Captain"
     fill
     className="object-cover"
@@ -377,24 +378,47 @@ Training with purpose, playing with respect, and learning from every match.  </p
           <li>Gallery</li>
         </ul>
       </div>
+<section
+  id="registration-form"
+  className="py-20 bg-green-950 text-white"
+>
+  <div className="max-w-3xl mx-auto px-6">
+    <h2 className="text-4xl font-bold text-center text-yellow-400">
+      Team Registration
+    </h2>
 
+    <p className="text-center text-green-100 mt-4">
+      Complete the form below to register your team.
+    </p>
+  </div>
+</section>
       {/* Contact */}
       <div id="contact">
         <h3 className="text-2xl font-bold mb-4">
           Contact
         </h3>
 
-        <p className="text-gray-300">
-          📍 Honnatty, The Nilgiris
-        </p>
+        <p className="text-gray-300 flex items-center gap-2">
+  <span>📍</span>
+  <span>Honnatty, The Nilgiris</span>
+</p>
 
-        <p className="text-gray-300 mt-3">
-          📧 Coming Soon
-        </p>
+        <p className="text-gray-300 mt-3 flex items-start gap-2">
+  <span>📧</span>
+  <span className="break-all">honnattysportsclub@gmail.com</span>
+</p>
 
-        <p className="text-gray-300 mt-3">
-          📱 Instagram Coming Soon
-        </p>
+        <p className="text-gray-300 mt-3 flex items-center gap-2">
+  <span>📸</span>
+  <a
+    href="https://www.instagram.com/honnatty_sports_club"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-yellow-400 underline"
+  >
+    @honnatty_sports_club
+  </a>
+</p>
 
       </div>
 
