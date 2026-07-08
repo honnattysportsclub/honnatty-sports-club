@@ -246,15 +246,39 @@ Training with purpose, playing with respect, and learning from every match.  </p
 </div>
 
         <div className="p-6 text-center">
-          <h3 className="text-2xl font-bold">Captain</h3>
-          <p className="text=xl text-gray-700 mt-2 font-bold">Dharshan</p>
-        </div>
+    <h3 className="text-2xl font-bold min-h-[64px] flex items-center justify-center">
+        Dharshan
+    </h3>
+    <p className="text-xl text-gray-700 mt-2 font-bold">
+        Captain/Outside Hitter
+    </p>
+</div>
       </div>
 
       <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
         <div className="relative h-80">
   <Image
     src="/team/v-captain.jpeg"
+    alt="Murali"
+    fill
+    className="object-cover"
+  />
+</div>
+
+        <div className="p-6 text-center">
+    <h3 className="text-2xl font-bold min-h-[64px] flex items-center justify-center">
+        Murali
+    </h3>
+    <p className="text-xl text-gray-700 mt-2 font-bold">
+        V. Captain/Opposite Hitter
+    </p>
+</div>
+      </div>
+
+      <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
+        <div className="relative h-80">
+  <Image
+    src="/team/vishal.jpeg"
     alt="Captain"
     fill
     className="object-cover"
@@ -262,33 +286,131 @@ Training with purpose, playing with respect, and learning from every match.  </p
 </div>
 
         <div className="p-6 text-center">
-          <h3 className="text-2xl font-bold">Vice Captain</h3>
-          <p className="text-xl text-gray-700 mt-2 font-bold">Murali</p>
-        </div>
+    <h3 className="text-2xl font-bold min-h-[64px] flex items-center justify-center">
+        Vishal Vaikunth
+    </h3>
+    <p className="text-xl text-gray-700 mt-2 font-bold">
+        Middle Blocker
+    </p>
+</div>
       </div>
-
       <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
-        <div className="h-80 bg-gray-200 flex items-center justify-center text-gray-500">
-          Player Photo
-        </div>
+               <div className="relative h-80">
+  <Image
+    src="/team/ajith.jpeg"
+    alt="Captain"
+    fill
+    className="object-cover"
+  />
+</div>
+
+        <div className="p-6 text-center">
+    <h3 className="text-2xl font-bold min-h-[64px] flex items-center justify-center">
+        Mathan
+    </h3>
+    <p className="text-xl text-gray-700 mt-2 font-bold">
+        Setter/Libero
+    </p>
+</div>
+      </div>
+<div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
+        <div className="relative h-80">
+  <Image
+    src="/team/.jpeg"
+    alt="Captain"
+    fill
+    className="object-cover"
+  />
+</div>
+
+        <div className="p-6 text-center">
+    <h3 className="text-2xl font-bold min-h-[64px] flex items-center justify-center">
+        Sathish
+    </h3>
+    <p className="text-xl text-gray-700 mt-2 font-bold">
+        Middle Blocker
+    </p>
+</div>
+      </div>
+      <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
+        <div className="relative h-80">
+  <Image
+    src="/team/Rohit.jpeg"
+    alt="Captain"
+    fill
+    className="object-cover"
+  />
+</div>
+
+        <div className="p-6 text-center">
+    <h3 className="text-2xl font-bold min-h-[64px] flex items-center justify-center">
+        Rohith
+    </h3>
+    <p className="text-xl text-gray-700 mt-2 font-bold">
+        Outside Hitter
+    </p>
+</div>
+      </div>
+      <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
+        <div className="relative h-80">
+  <Image
+    src="/team/.jpeg"
+    alt="Captain"
+    fill
+    className="object-cover"
+  />
+</div>
 
         <div className="p-6 text-center">
           <h3 className="text-2xl font-bold">Player</h3>
-          <p className="text-gray-600 mt-2">Coming Soon</p>
+          <p className="text-xl text-gray-700 mt-2 font-bold"> </p>
         </div>
       </div>
-
       <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
-        <div className="h-80 bg-gray-200 flex items-center justify-center text-gray-500">
-          Player Photo
+        <div className="relative h-80">
+  <Image
+    src="/team/.jpeg"
+    alt="Captain"
+    fill
+    className="object-cover"
+  />
+</div>
+
+        <div className="p-6 text-center">
+          <h3 className="text-2xl font-bold">Player </h3>
+          <p className="text-xl text-gray-700 mt-2 font-bold"> </p>
         </div>
+      </div>
+      <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
+        <div className="relative h-80">
+  <Image
+    src="/team/.jpeg"
+    alt="Captain"
+    fill
+    className="object-cover"
+  />
+</div>
+
+        <div className="p-6 text-center">
+          <h3 className="text-2xl font-bold"> Player</h3>
+          <p className="text-xl text-gray-700 mt-2 font-bold"> </p>
+        </div>
+      </div>
+      <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
+        <div className="relative h-80">
+  <Image
+    src="/team/.jpeg"
+    alt="Captain"
+    fill
+    className="object-cover"
+  />
+</div>
 
         <div className="p-6 text-center">
           <h3 className="text-2xl font-bold">Player</h3>
-          <p className="text-gray-600 mt-2">Coming Soon</p>
+          <p className="text-xl text-gray-700 mt-2 font-bold"> </p>
         </div>
       </div>
-
     </div>
 
   </div>
