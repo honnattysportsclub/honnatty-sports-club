@@ -124,7 +124,12 @@ Registration closes on 5 August 2026 or when all 16 slots are filled—
 >
   Register Now
 </Link>
-
+<Link
+  href="/registered-teams"
+  className="mt-4 ml-4 inline-block px-8 py-3 rounded-xl border border-yellow-400 text-yellow-400 font-bold hover:bg-yellow-400 hover:text-black transition"
+>
+  View Registered Teams
+</Link>
   </div>
 
 </div>

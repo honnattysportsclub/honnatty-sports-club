@@ -1,9 +1,11 @@
 "use client";
-import { useState } from "react" ;
+import {useRouter} from "next/navigation";
+import { useEffect, useState } from "react" ;
 import { supabase } from "../lib/supabase";
 
 export default function TournamentDetails() {
     const [teamName, setTeamName] = useState("");
+    const [village, setVillage] = useState("");
     const [captainName, setCaptainName] = useState("");
 const [captainPhone, setCaptainPhone] = useState("");
 const [player2, setPlayer2] = useState("");
@@ -19,14 +21,71 @@ const [player11, setPlayer11] = useState("");
 const [utrNumber, setUtrNumber] = useState("");
 const [loading, setLoading] = useState(false);
     const [showPayment, setShowPayment] = useState(false);
-    async function registerTeam() {
-  setLoading(true);
+    const [registeredCount, setRegisteredCount] = useState(0);
+    const router = useRouter();
+const [successMessage, setSuccessMessage] = useState("");
+const [errorMessage, setErrorMessage] = useState("");
 
+    useEffect(() => {
+  async function fetchRegisteredCount() {
+    const { count } = await supabase
+      .from("Registrations")
+      .select("*", { count: "exact", head: true });
+
+    setRegisteredCount(count || 0);
+  }
+
+  fetchRegisteredCount();
+}, []);
+useEffect(() => {
+  if (successMessage || errorMessage) {
+    const timer = setTimeout(() => {
+      setSuccessMessage("");
+      setErrorMessage("");
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }
+}, [successMessage, errorMessage]);
+    async function registerTeam() {
+ if (
+  !teamName.trim() ||
+  !village.trim() ||
+  !captainName.trim() ||
+  !captainPhone.trim() ||
+  !utrNumber.trim()
+) {
+  setErrorMessage("⚠️ Team Name, Village, Captain Name, Captain Phone and UTR Number are mandatory.");
+setSuccessMessage("");
+  return;
+}
+if (!/^\d{10}$/.test(captainPhone)) {
+  setErrorMessage("📱 Captain Phone Number must be exactly 10 digits.");
+setSuccessMessage("");
+  return;
+}
+if (!/^\d{12}$/.test(utrNumber)) {
+  setErrorMessage("💳 UTR Number must be exactly 12 digits.");
+setSuccessMessage("");
+  return;
+}
+  setLoading(true);
+const { count } = await supabase
+  .from("Registerations")
+  .select("*", { count: "exact", head: true });
+
+if ((count ?? 0) >= 14) {
+  setErrorMessage("🚫 Registration is full. No more teams can register.");
+setSuccessMessage("");
+setLoading(false);
+return;
+}
   const { error } = await supabase
     .from("Registerations")
     .insert([
   {
     team_name: teamName,
+    village: village,
     captain_name: captainName,
     captain_phone: captainPhone,
     player_2: player2,
@@ -40,19 +99,51 @@ const [loading, setLoading] = useState(false);
     player_10: player10,
     player_11: player11,
     utr_number: utrNumber,
+    status: "Pending"
   },
 ]);
   setLoading(false);
 
   if (error) {
-    alert("Registration failed");
+    setErrorMessage("❌ Registration failed. Please try again.");
+setSuccessMessage("");
   } else {
-    alert("Registration successful!");
-    setTeamName("");
-  }
+  setRegisteredCount((prev) => prev + 1);
+  setSuccessMessage("🎉 Registration successful! Your team has been registered.");
+setErrorMessage("");
+  setTeamName("");
+  setVillage("");
+setCaptainName("");
+setCaptainPhone("");
+setPlayer2("");
+setPlayer3("");
+setPlayer4("");
+setPlayer5("");
+setPlayer6("");
+setPlayer7("");
+setPlayer8("");
+setPlayer9("");
+setPlayer10("");
+setPlayer11("");
+setUtrNumber("");
+setTimeout(() => {
+  router.push("/registered-teams");
+}, 1500);
+}
 }
   return (
     <main className="min-h-screen bg-gradient-to-b from-black via-[#1a1200] to-[#062b1d] text-white flex items-center justify-center">
+      {successMessage && (
+  <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-md rounded-xl bg-green-100 border border-green-500 p-4 text-green-800 shadow-xl">
+    {successMessage}
+  </div>
+)}
+
+{errorMessage && (
+  <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-md rounded-xl bg-red-100 border border-red-500 p-4 text-red-800 shadow-xl">
+    {errorMessage}
+  </div>
+)}
       <div className="relative z-20 max-w-5xl mx-auto px-6 py-20">
 
   <h1 className="text-5xl md:text-6xl font-extrabold text-yellow-400 text-center">
@@ -160,10 +251,12 @@ const [loading, setLoading] = useState(false);
   </label>
 
   <input
-    type="text"
-    placeholder="Enter your team name"
-    className="w-full rounded-xl bg-white text-black px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-  />
+  type="text"
+  placeholder="Enter your team name"
+  value={teamName}
+  onChange={(e) => setTeamName(e.target.value)}
+  className="w-full rounded-xl bg-white text-black px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+/>
 </div>
 <div className="mt-6">
   <label className="block text-green-100 font-medium mb-2">
@@ -171,10 +264,12 @@ const [loading, setLoading] = useState(false);
   </label>
 
   <input
-    type="text"
-    placeholder="Enter your village name"
-    className="w-full rounded-xl bg-white text-black px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-  />
+  type="text"
+  placeholder="Enter your village name"
+  value={village}
+  onChange={(e) => setVillage(e.target.value)}
+  className="w-full rounded-xl bg-white text-black px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+/>
 </div>
 <div className="mt-6">
   <label className="block text-green-100 font-medium mb-2">

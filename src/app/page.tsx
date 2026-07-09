@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "lucide-react";
 import { supabase } from "./lib/supabase";
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -297,7 +298,7 @@ Training with purpose, playing with respect, and learning from every match.  </p
       <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
                <div className="relative h-80">
   <Image
-    src="/team/ajith.jpeg"
+    src="/team/karnan.jpeg"
     alt="Captain"
     fill
     className="object-cover"
@@ -500,20 +501,7 @@ Training with purpose, playing with respect, and learning from every match.  </p
           <li>Gallery</li>
         </ul>
       </div>
-<section
-  id="registration-form"
-  className="py-20 bg-green-950 text-white"
->
-  <div className="max-w-3xl mx-auto px-6">
-    <h2 className="text-4xl font-bold text-center text-yellow-400">
-      Team Registration
-    </h2>
 
-    <p className="text-center text-green-100 mt-4">
-      Complete the form below to register your team.
-    </p>
-  </div>
-</section>
       {/* Contact */}
       <div id="contact">
         <h3 className="text-2xl font-bold mb-4">
