@@ -25,6 +25,7 @@ const [loading, setLoading] = useState(false);
     const router = useRouter();
 const [successMessage, setSuccessMessage] = useState("");
 const [errorMessage, setErrorMessage] = useState("");
+const [registrationComplete, setRegistrationComplete] = useState(false);
 
     useEffect(() => {
   async function fetchRegisteredCount() {
@@ -69,6 +70,19 @@ if (!/^\d{12}$/.test(utrNumber)) {
 setSuccessMessage("");
   return;
 }
+const { data: existingTeam } = await supabase
+  .from("Registerations")
+  .select("id")
+  .eq("captain_phone", captainPhone)
+  .maybeSingle();
+
+if (existingTeam) {
+  setErrorMessage(
+    "⚠️ Registration already exists.\n\nPlease use the Check Registration Status page to view your application."
+  );
+  setSuccessMessage("");
+  return;
+}
   setLoading(true);
 const { count } = await supabase
   .from("Registerations")
@@ -109,7 +123,15 @@ return;
 setSuccessMessage("");
   } else {
   setRegisteredCount((prev) => prev + 1);
-  setSuccessMessage("🎉 Registration successful! Your team has been registered.");
+  setSuccessMessage(
+  "🎉 Registration submitted successfully!\n\n" +
+  "Your registration has been received.\n\n" +
+  "Your payment is now under verification by the tournament organizers.\n\n" +
+  "Once approved, your team will automatically appear on the Registered Teams page.\n\n" +
+  "You can also check your registration anytime using the Check Registration Status page."
+);
+console.log("SUCCESS SCREEN");
+setRegistrationComplete(true);
 setErrorMessage("");
   setTeamName("");
   setVillage("");
@@ -126,15 +148,46 @@ setPlayer9("");
 setPlayer10("");
 setPlayer11("");
 setUtrNumber("");
-setTimeout(() => {
-  router.push("/registered-teams");
-}, 1500);
 }
+}
+if (registrationComplete) {
+  return (
+    <main className="min-h-screen bg-gradient-to-b from-black via-[#1a1200] to-[#062b1d] text-white flex items-center justify-center p-6">
+      <div className="max-w-md w-full bg-white/10 border border-green-500 rounded-2xl p-8 text-center">
+
+        <div className="text-6xl mb-4">🎉</div>
+
+        <h1 className="text-3xl font-bold text-yellow-400 mb-4">
+          Registration Submitted!
+        </h1>
+
+        <p>Your registration has been received successfully.</p>
+
+        <p className="mt-4 text-yellow-300 font-semibold">
+          ⏳ Payment Verification Under Process
+        </p>
+
+        <p className="mt-4 text-gray-300">
+          Once approved, your team will automatically appear on the Registered Teams page.
+        </p>
+
+        <p className="mt-6 text-green-300 font-semibold">
+          🏐 See you on 15–16 August 2026!
+        </p>
+<button
+  onClick={() => router.push("/check-status")}
+  className="mt-6 w-full bg-yellow-400 text-black font-bold py-3 rounded-xl hover:bg-yellow-300 transition"
+>
+  Check Registration Status
+</button>
+      </div>
+    </main>
+  );
 }
   return (
     <main className="min-h-screen bg-gradient-to-b from-black via-[#1a1200] to-[#062b1d] text-white flex items-center justify-center">
       {successMessage && (
-  <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-md rounded-xl bg-green-100 border border-green-500 p-4 text-green-800 shadow-xl">
+  <div className="whitespace-pre-line">
     {successMessage}
   </div>
 )}
@@ -388,7 +441,7 @@ setTimeout(() => {
     </h2>
 
     <p className="text-green-100">
-      Registration Fee: <strong>₹500</strong>
+      Registration Fee: <strong>₹300</strong>
     </p>
 
     <div className="mt-6 bg-white rounded-2xl p-4 text-center">

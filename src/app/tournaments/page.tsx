@@ -118,18 +118,26 @@ Registration closes on 5 August 2026 or when all 16 slots are filled—
 <p className="mt-4 rounded-lg bg-yellow-400/10 border border-yellow-400/30 px-4 py-2 text-sm text-yellow-200">
   📌 Registration closes when all 16 slots are filled.
 </p>
+<div className="mt-8 flex flex-col gap-4">
     <Link
   href="/tournament-details"
-  className="mt-8 inline-block px-8 py-3 rounded-xl bg-yellow-400 text-black font-bold hover:bg-yellow-300 transition"
+  className="w-full text-center px-8 py-3 rounded-xl bg-yellow-400 text-black font-bold hover:bg-yellow-300 transition"
 >
   Register Now
 </Link>
 <Link
+  href="/check-status"
+  className="w-full text-center px-8 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition"
+>
+  Check Registration Status
+</Link>
+<Link
   href="/registered-teams"
-  className="mt-4 ml-4 inline-block px-8 py-3 rounded-xl border border-yellow-400 text-yellow-400 font-bold hover:bg-yellow-400 hover:text-black transition"
+  className="w-full text-center px-8 py-3 rounded-xl border border-yellow-400 text-yellow-400 font-bold hover:bg-yellow-400 hover:text-black transition"
 >
   View Registered Teams
 </Link>
+</div>
   </div>
 
 </div>
