@@ -99,7 +99,7 @@ Registration closes on 5 August 2026 or when all 16 slots are filled—
 <div className="rounded-3xl shadow-2x1 hover:scale-[1.02] transition-all duration-300 border border-yellow-400/20 bg-white/10 backdrop-blur-md p-5 sm:p-6 md:p-8 shadow-2xl">
 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <span className="px-5 py-2 rounded-full bg-gradient-to-r from-yellow-300 to-yellow-500 text-black font-bold">
-        REGISTRATION OPEN
+        REGISTRATION 
       </span>
 
       <span className="text-gray-300">
@@ -108,12 +108,13 @@ Registration closes on 5 August 2026 or when all 16 slots are filled—
     </div>
 
     <h2 className="text-2xl md:text-5xl font-bold text-yellow-400 leading-tight">
-      Honnatty Open Volleyball Tournament 2026
+      Honnatty Volleyball Tournament 2026 – District Level
     </h2>
 
     <div className="mt-6 space-y-3 text-white text-lg">
       <p>📅 15-16 August 2026</p>
       <p>👥 Only 16 teams accepted</p>
+      <p>👥 Home tems only</p>
     </div>
 <p className="mt-4 rounded-lg bg-yellow-400/10 border border-yellow-400/30 px-4 py-2 text-sm text-yellow-200">
   📌 Registration closes when all 16 slots are filled.

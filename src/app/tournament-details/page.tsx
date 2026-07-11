@@ -28,10 +28,18 @@ const [errorMessage, setErrorMessage] = useState("");
 const [registrationComplete, setRegistrationComplete] = useState(false);
 const [showTopButton, setShowTopButton] = useState(false);
 const [agreed, setAgreed] = useState(false);
+const copyUpiId = async () => {
+  try {
+    await navigator.clipboard.writeText("9943115125@ybl");
+    alert("✅ UPI ID copied!");
+  } catch {
+    alert("Unable to copy. Please copy the UPI ID manually.");
+  }
+};
     useEffect(() => {
   async function fetchRegisteredCount() {
     const { count } = await supabase
-      .from("Registrations")
+      .from("Registerations")
       .select("*", { count: "exact", head: true });
 
     setRegisteredCount(count || 0);
@@ -221,7 +229,7 @@ if (registrationComplete) {
   <div className="mt-12 rounded-3xl bg-white/10 border border-yellow-400/20 backdrop-blur-md p-8">
 
     <h2 className="text-3xl font-bold text-yellow-400">
-      Honnatty Open Volleyball Tournament 2026
+      Honnatty District-Level Volleyball Tournament 2026
     </h2>
 
     <div className="mt-6 space-y-4 text-white">
@@ -271,12 +279,12 @@ if (registrationComplete) {
 <div className="mt-8 rounded-3xl bg-white/10 border border-yellow-400/20 backdrop-blur-md p-8">
 
   <h2 className="text-3xl font-bold text-yellow-400 mb-6">
-    📝 Registration
+    📝 Queries
   </h2>
 
   <div className="space-y-4 text-white">
 
-    <p>🟢 <strong>Status:</strong> Registration Open</p>
+  
 
     <div className="mb-4">
   <p>
@@ -313,6 +321,30 @@ if (registrationComplete) {
   <h2 className="text-2xl font-bold text-yellow-400 mb-4">
     Register Your Team
   </h2>
+  <div className="mt-4 mb-5 rounded-xl border border-yellow-400/30 bg-yellow-400/10 p-4 text-center">
+  
+
+
+  <p className="mt-2 text-yellow-300 font-semibold text-lg">
+    {registeredCount} / 14 Teams Registered
+  </p>
+
+  <p className="mt-1 text-sm text-gray-300">
+    {registeredCount >= 14 ? (
+  <span className="text-red-400 font-bold">
+    🔴 Registrations Closed
+  </span>
+) : registeredCount === 13 ? (
+  <span className="text-red-300 font-semibold">
+    ⚠️ Only 1 Slot Available!
+  </span>
+) : (
+  <span>
+    🎯 {14 - registeredCount} Slots Available
+  </span>
+)}
+  </p>
+</div>
   <p className="text-green-100 mb-6">
     Fill in the details below to register your team.
   </p>
@@ -479,13 +511,58 @@ if (registrationComplete) {
   ₹300 will be pre-filled automatically.
 </p>
 
-<p className="mt-4 text-center text-xs text-gray-400">
-  If the button doesn't open your UPI app, pay using:
-</p>
+<div className="mt-5 rounded-xl border border-yellow-400/20 bg-white/5 p-5 text-center">
 
-<p className="text-center font-bold text-yellow-400">
-  9943115125@ybl
-</p>
+  <p className="text-sm text-gray-300">
+    Having trouble opening your UPI app?
+  </p>
+
+  <p className="mt-2 text-sm text-gray-300">
+    Use either the UPI ID or the mobile number below.
+  </p>
+
+  {/* UPI ID */}
+  <div className="mt-5">
+    <p className="text-xs uppercase tracking-wide text-gray-400">
+      UPI ID
+    </p>
+
+    <p className="mt-2 text-2xl font-extrabold text-yellow-400 break-all">
+      9943115125@ybl
+    </p>
+
+    <button
+      type="button"
+      onClick={copyUpiId}
+      className="mt-3 rounded-lg bg-yellow-400 px-2 py-1 font-bold text-black hover:bg-yellow-300 transition"
+    >
+      📋 Copy UPI ID
+    </button>
+  </div>
+
+  {/* Mobile Number */}
+  <div className="mt-8 border-t border-yellow-400/20 pt-6">
+    <p className="text-xs uppercase tracking-wide text-gray-400">
+      Mobile Number
+    </p>
+
+    <p className="mt-2 text-3xl font-extrabold text-yellow-400">
+      9943115125
+    </p>
+
+    <button
+      type="button"
+      onClick={() => {
+        navigator.clipboard.writeText("9943115125");
+        alert("✅ Mobile number copied!");
+      }}
+      className="mt-3 rounded-lg bg-yellow-400 px-2 py-1 font-bold text-black hover:bg-yellow-300 transition"
+    >
+      📋 Copy Mobile Number
+    </button>
+  </div>
+
+</div>
 
     <div className="mt-6">
       <label className="block text-green-100 font-medium mb-2">
@@ -503,14 +580,18 @@ if (registrationComplete) {
 
     <button
   onClick={registerTeam}
-  disabled={!/^\d{12}$/.test(utrNumber)}
+  disabled={registeredCount >= 14 || !/^\d{12}$/.test(utrNumber)}
   className={`mt-8 w-full rounded-xl py-4 font-bold transition ${
-    /^\d{12}$/.test(utrNumber)
-      ? "bg-yellow-400 text-black hover:bg-yellow-300"
-      : "bg-gray-500 text-gray-300 cursor-not-allowed"
+    registeredCount >= 14
+  ? "bg-red-600 text-white cursor-not-allowed"
+  : /^\d{12}$/.test(utrNumber)
+    ? "bg-yellow-400 text-black hover:bg-yellow-300"
+    : "bg-gray-500 text-gray-300 cursor-not-allowed"
   }`}
 >
-  Submit Registration
+  {registeredCount >= 14
+  ? "Registrations Closed"
+  : "Submit Registration"}
 </button>
 
   </section>

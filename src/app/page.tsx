@@ -424,7 +424,7 @@ Training with purpose, playing with respect, and learning from every match.  </p
         Hanish
     </h3>
     <p className="text-xl text-gray-700 mt-2 font-bold">
-        Captain/Outside Hitter
+        Outside Hitter
     </p>
 </div>
       </div>
