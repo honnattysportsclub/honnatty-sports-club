@@ -26,7 +26,8 @@ const [loading, setLoading] = useState(false);
 const [successMessage, setSuccessMessage] = useState("");
 const [errorMessage, setErrorMessage] = useState("");
 const [registrationComplete, setRegistrationComplete] = useState(false);
-
+const [showTopButton, setShowTopButton] = useState(false);
+const [agreed, setAgreed] = useState(false);
     useEffect(() => {
   async function fetchRegisteredCount() {
     const { count } = await supabase
@@ -47,7 +48,17 @@ useEffect(() => {
 
     return () => clearTimeout(timer);
   }
+  
 }, [successMessage, errorMessage]);
+useEffect(() => {
+  const handleScroll = () => {
+    setShowTopButton(window.scrollY > 400);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
     async function registerTeam() {
  if (
   !teamName.trim() ||
@@ -56,7 +67,7 @@ useEffect(() => {
   !captainPhone.trim() ||
   !utrNumber.trim()
 ) {
-  setErrorMessage("⚠️ Team Name, Village, Captain Name, Captain Phone and UTR Number are mandatory.");
+  setErrorMessage("⚠️ Team Name, Village, Captain Name, Captain Phone and Transaction id/UTR Number are mandatory.");
 setSuccessMessage("");
   return;
 }
@@ -217,7 +228,7 @@ if (registrationComplete) {
 
       <p>📅 <strong>Date:</strong> 15 & 16 August 2026</p>
 
-      <p>📍 <strong>Venue:</strong> Honnatty Sports Ground</p>
+      <p>📍 <strong>Venue:</strong> Honnatty Sports Arena</p>
 
       <p>👥 <strong>Category:</strong> Men's Open</p>
 
@@ -274,6 +285,13 @@ if (registrationComplete) {
 
   <p className="ml-23">
     +91 63797 89130
+  </p>
+  <p>
+    📞 <strong>Contact:</strong> Murali
+  </p>
+
+  <p className="ml-23">
+    +91 96269 87007 or 83449 93409
   </p>
 </div>
     <div className="flex items-center gap-3">
@@ -411,10 +429,11 @@ if (registrationComplete) {
 
   <label className="flex items-start gap-3 mt-5 text-green-100">
     <input
-      type="checkbox"
-      required
-      className="mt-1 h-5 w-5 accent-yellow-400"
-    />
+  type="checkbox"
+  checked={agreed}
+  onChange={(e) => setAgreed(e.target.checked)}
+  className="mt-1 h-5 w-5 accent-yellow-400"
+/>
 
     <span>
       I confirm that all the above details are correct. Our team agrees to
@@ -444,35 +463,38 @@ if (registrationComplete) {
       Registration Fee: <strong>₹300</strong>
     </p>
 
-    <div className="mt-6 bg-white rounded-2xl p-4 text-center">
-      <p className="text-black font-semibold">
-        Scan to Pay
-      </p>
 
-      <div className="h-56 rounded-xl bg-white flex items-center justify-center mt-3 p-3">
-  <img
-    src="/upi-qr.png"
-    alt="UPI QR Code"
-    className="w-full h-full object-contain rounded-lg"
-  />
-</div>
-    </div>
-    <p className="mt-4 text-center text-green-100">
-  Can't scan? Pay using UPI ID
+<a
+  href="upi://pay?pa=9943115125@ybl&pn=Honnatty%20Sports%20Club&am=300&cu=INR"
+  className="mt-4 block w-full rounded-xl bg-yellow-400 py-3 text-center font-bold text-black hover:bg-yellow-300 transition"
+>
+  💳 Pay ₹300 via UPI
+</a>
+
+<p className="mt-2 text-center text-sm text-gray-300">
+  Tap to open PhonePe, Google Pay, Paytm or any UPI app.
 </p>
 
-<p className="mt-2 text-center text-yellow-400 font-semibold text-lg">
+<p className="text-center text-xs text-yellow-300">
+  ₹300 will be pre-filled automatically.
+</p>
+
+<p className="mt-4 text-center text-xs text-gray-400">
+  If the button doesn't open your UPI app, pay using:
+</p>
+
+<p className="text-center font-bold text-yellow-400">
   9943115125@ybl
 </p>
 
     <div className="mt-6">
       <label className="block text-green-100 font-medium mb-2">
-        UTR Number
+        UTR Number/Transaction ID
       </label>
 
       <input
   type="text"
-  placeholder="Enter 12-digit UTR Number"
+  placeholder="Enter 12-digit UTR Number/Transaction ID"
   value={utrNumber}
   onChange={(e) => setUtrNumber(e.target.value)}
   className="w-full rounded-xl bg-white text-black px-4 py-3"
@@ -480,11 +502,16 @@ if (registrationComplete) {
     </div>
 
     <button
-    onClick={registerTeam}
-      className="mt-8 w-full rounded-xl bg-yellow-400 py-4 text-black font-bold hover:bg-yellow-300 transition"
-    >
-      Submit Registration
-    </button>
+  onClick={registerTeam}
+  disabled={!/^\d{12}$/.test(utrNumber)}
+  className={`mt-8 w-full rounded-xl py-4 font-bold transition ${
+    /^\d{12}$/.test(utrNumber)
+      ? "bg-yellow-400 text-black hover:bg-yellow-300"
+      : "bg-gray-500 text-gray-300 cursor-not-allowed"
+  }`}
+>
+  Submit Registration
+</button>
 
   </section>
 )}
@@ -507,7 +534,7 @@ if (registrationComplete) {
     </p>
 
     <a
-      href="https://maps.google.com"
+      href="https://maps.app.goo.gl/MqBarqzbHHbERp9K7?g_st=ic"
       target="_blank"
       rel="noopener noreferrer"
       className="inline-block mt-4 px-6 py-3 rounded-xl bg-yellow-400 text-black font-bold hover:bg-yellow-300 transition"
@@ -519,6 +546,15 @@ if (registrationComplete) {
 
 </div>
 </div>
+{showTopButton && (
+  <button
+    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+    className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-yellow-400 text-black text-2xl font-bold shadow-lg hover:bg-yellow-300 transition"
+    title="Back to Top"
+  >
+    ↑
+  </button>
+)}
     </main>
   );
 }

@@ -5,6 +5,10 @@ export default function AdminPage() {
   const [teams, setTeams] = useState<any[]>([]);
   const [selectedTeam, setSelectedTeam] = useState<any | null>(null);
   const detailsRef = useRef<HTMLDivElement>(null);
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState("");
+const [authenticated, setAuthenticated] = useState(false);
   useEffect(() => {
   fetchTeams();
 }, []);
@@ -50,15 +54,80 @@ async function updateStatus(id: string, status: string) {
  
   fetchTeams();
 }
+if (!authenticated) {
+  return (
+    <main className="min-h-screen bg-gradient-to-b from-black via-[#1a1200] to-[#062b1d] flex items-center justify-center p-6">
+      <div className="bg-white/10 border border-yellow-400 rounded-2xl p-8 w-full max-w-md">
+
+        <h1 className="text-3xl font-bold text-yellow-400 text-center mb-6">
+          Admin Login
+        </h1>
+
+        <div className="relative mb-4">
+  <input
+    type={showPassword ? "text" : "password"}
+    placeholder="Enter Admin Password"
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+    className="w-full rounded-xl bg-white px-4 py-3 pr-20 text-black"
+  />
+
+  <button
+    type="button"
+    onClick={() => setShowPassword(!showPassword)}
+    className="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-semibold text-gray-700 hover:text-black"
+  >
+    {showPassword ? "Hide" : "Show"}
+  </button>
+</div>
+{loginError && (
+  <p className="mt-3 text-center text-red-400 font-medium">
+    {loginError}
+  </p>
+)}
+        <button
+          onClick={() => {
+            if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
+              setLoginError("");
+setAuthenticated(true);
+            } else {
+  setLoginError("❌ Incorrect admin password.");
+}
+          }}
+          className="w-full rounded-xl bg-yellow-400 py-3 font-bold text-black hover:bg-yellow-300"
+        >
+          Login
+        </button>
+        
+
+      </div>
+    </main>
+  );
+}
 
   return (
+    
+    
     
     <main className="min-h-screen bg-gradient-to-b from-black via-[#1a1200] to-[#062b1d] text-white p-8">
       <div className="max-w-5xl mx-auto">
 
-        <h1 className="text-5xl font-bold text-yellow-400 text-center mb-8">
-          Admin Dashboard
-        </h1>
+        <div className="flex items-center justify-between mb-8">
+  <h1 className="text-5xl font-bold text-yellow-400">
+    Admin Dashboard
+  </h1>
+
+  <button
+    onClick={() => {
+      setAuthenticated(false);
+      setPassword("");
+      setLoginError("");
+    }}
+    className="rounded-lg bg-red-600 px-4 py-2 font-bold text-white hover:bg-red-500 transition"
+  >
+    Logout
+  </button>
+</div>
 
         <div className="space-y-3">
   {teams.map((team, index) => (

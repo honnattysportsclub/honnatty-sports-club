@@ -355,7 +355,7 @@ Training with purpose, playing with respect, and learning from every match.  </p
       <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
         <div className="relative h-80">
   <Image
-    src="/team/.jpeg"
+    src="/team/shanto.jpeg"
     alt="Captain"
     fill
     className="object-cover"
@@ -363,14 +363,18 @@ Training with purpose, playing with respect, and learning from every match.  </p
 </div>
 
         <div className="p-6 text-center">
-          <h3 className="text-2xl font-bold">Player</h3>
-          <p className="text-xl text-gray-700 mt-2 font-bold"> </p>
-        </div>
-      </div>
+    <h3 className="text-2xl font-bold min-h-[64px] flex items-center justify-center">
+        Santhosh
+    </h3>
+    <p className="text-xl text-gray-700 mt-2 font-bold">
+        Opposite Hitter
+    </p>
+</div>
+     </div>
       <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
         <div className="relative h-80">
   <Image
-    src="/team/.jpeg"
+    src="/team/jenith.jpeg"
     alt="Captain"
     fill
     className="object-cover"
@@ -378,7 +382,84 @@ Training with purpose, playing with respect, and learning from every match.  </p
 </div>
 
         <div className="p-6 text-center">
-          <h3 className="text-2xl font-bold">Player </h3>
+    <h3 className="text-2xl font-bold min-h-[64px] flex items-center justify-center">
+        Jenithraj
+    </h3>
+    <p className="text-xl text-gray-700 mt-2 font-bold">
+        Opposite Hitter
+    </p>
+</div>
+      </div>
+      <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
+        <div className="relative h-80">
+  <Image
+    src="/team/mowneesh.jpeg"
+    alt="Captain"
+    fill
+    className="object-cover"
+  />
+</div>
+
+        <div className="p-6 text-center">
+    <h3 className="text-2xl font-bold min-h-[64px] flex items-center justify-center">
+        Mowneesh
+    </h3>
+    <p className="text-xl text-gray-700 mt-2 font-bold">
+        Middle Blocker
+    </p>
+</div>
+      </div>
+      <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
+        <div className="relative h-80">
+  <Image
+    src="/team/hanis.jpeg"
+    alt="Captain"
+    fill
+    className="object-cover"
+  />
+</div>
+
+        <div className="p-6 text-center">
+    <h3 className="text-2xl font-bold min-h-[64px] flex items-center justify-center">
+        Hanish
+    </h3>
+    <p className="text-xl text-gray-700 mt-2 font-bold">
+        Captain/Outside Hitter
+    </p>
+</div>
+      </div>
+      <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
+        <div className="relative h-80">
+  <Image
+    src="/team/dhodapp.jpeg"
+    alt="Captain"
+    fill
+    className="object-cover"
+  />
+</div>
+
+        <div className="p-6 text-center">
+    <h3 className="text-2xl font-bold min-h-[64px] flex items-center justify-center">
+        Shrisai
+    </h3>
+    <p className="text-xl text-gray-700 mt-2 font-bold">
+        Opposite Hitter
+    </p>
+</div>
+      </div>
+      
+      <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
+        <div className="relative h-80">
+  <Image
+    src="/team/.jpeg"
+    alt="coming soon"
+    fill
+    className="object-cover"
+  />
+</div>
+
+<div className="p-6 text-center">
+          <h3 className="text-2xl font-bold"> Player</h3>
           <p className="text-xl text-gray-700 mt-2 font-bold"> </p>
         </div>
       </div>
@@ -386,7 +467,7 @@ Training with purpose, playing with respect, and learning from every match.  </p
         <div className="relative h-80">
   <Image
     src="/team/.jpeg"
-    alt="Captain"
+    alt="coming soon"
     fill
     className="object-cover"
   />
@@ -401,7 +482,7 @@ Training with purpose, playing with respect, and learning from every match.  </p
         <div className="relative h-80">
   <Image
     src="/team/.jpeg"
-    alt="Captain"
+    alt="coming soon"
     fill
     className="object-cover"
   />
