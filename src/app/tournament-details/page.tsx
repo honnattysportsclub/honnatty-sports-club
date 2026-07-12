@@ -28,6 +28,7 @@ const [errorMessage, setErrorMessage] = useState("");
 const [registrationComplete, setRegistrationComplete] = useState(false);
 const [showTopButton, setShowTopButton] = useState(false);
 const [agreed, setAgreed] = useState(false);
+const [showHowToRegister, setShowHowToRegister] = useState(false);
 const copyUpiId = async () => {
   try {
     await navigator.clipboard.writeText("9943115125@ybl");
@@ -272,6 +273,8 @@ if (registrationComplete) {
 
     <li>✅ The organizers reserve the right to modify the schedule or rules if necessary.</li>
 
+    <li>✅ As the tournament will be played on a concrete court, wearing proper sports shoes is mandatory for all players. Players without suitable footwear will not be allowed to participate.</li>
+
     <li>✅ Smoking, consumption of tobacco, alcohol, and other intoxicating substances is strictly prohibited within the tournament premises. If any player or any person associated with a team is found violating this rule, the entire team will be disqualified from the tournament.</li>
   </ul>
 
@@ -321,6 +324,39 @@ if (registrationComplete) {
   <h2 className="text-2xl font-bold text-yellow-400 mb-4">
     Register Your Team
   </h2>
+  <button
+  type="button"
+  onClick={() => setShowHowToRegister(!showHowToRegister)}
+  className="mt-4 w-full rounded-xl border border-yellow-400 bg-yellow-400/10 py-3 font-semibold text-yellow-300 hover:bg-yellow-400/20 transition"
+>
+  📖 {showHowToRegister ? "Hide Registration Guide" : "How to Register"}
+</button>
+{showHowToRegister && (
+  <div className="mt-4 rounded-xl border border-yellow-400/20 bg-white/5 p-5 text-gray-200 space-y-4">
+
+    <h3 className="text-xl font-bold text-yellow-400">
+      📖 How to Register
+    </h3>
+
+    <ol className="list-decimal list-inside space-y-3 text-sm leading-7">
+      <li>Fill in your team details and player names.</li>
+      <li>Tick the confirmation checkbox after verifying all details.</li>
+      <li>Click <strong>Continue to Payment</strong>.</li>
+      <li>Pay the ₹300 registration fee using any UPI app.</li>
+      <li>If the payment button doesn't open, copy the UPI ID or mobile number and pay manually.</li>
+      <li>Enter the 12-digit UTR / Transaction ID after payment.</li>
+      <li>Click <strong>Submit Registration</strong>.</li>
+      <li>Your registration will remain <strong>Pending</strong> until payment is verified.</li>
+      <li>You can check your registration status anytime using <strong>Check Registration Status</strong>.</li>
+    </ol>
+
+    <div className="rounded-lg border border-yellow-400/20 bg-yellow-400/10 p-4 text-yellow-200">
+      <strong>Important:</strong> Registration is confirmed only after approval by the organizers.
+      A maximum of <strong>14 teams</strong> will be accepted.
+    </div>
+
+  </div>
+)}
   <div className="mt-4 mb-5 rounded-xl border border-yellow-400/30 bg-yellow-400/10 p-4 text-center">
   
 
@@ -345,9 +381,26 @@ if (registrationComplete) {
 )}
   </p>
 </div>
-  <p className="text-green-100 mb-6">
-    Fill in the details below to register your team.
-  </p>
+
+    {registeredCount >= 14 ? (
+  <div className="mt-6 rounded-xl border border-red-500/30 bg-red-500/10 p-6 text-center">
+    <h3 className="text-2xl font-bold text-red-400">
+      🔒 Registrations Closed
+    </h3>
+
+    <p className="mt-3 text-gray-200">
+      All <strong>14 team slots</strong> have been filled.
+    </p>
+
+    <p className="mt-2 text-gray-400">
+      Thank you for your interest in the tournament.
+    </p>
+  </div>
+) : (
+  <>
+    <p className="text-green-100 mb-6">
+      Fill in the details below to register your team.
+    </p>
   <div className="mt-6">
   <label className="block text-green-100 font-medium mb-2">
     Team Name
@@ -481,9 +534,9 @@ if (registrationComplete) {
 >
   Continue to Payment →
 </button>
-  
-
-</div>
+  </div>
+  </>
+  )}
 {showPayment && (
   <section className="mt-8 rounded-3xl bg-white/10 border border-yellow-400/20 backdrop-blur-md p-8">
 
@@ -594,10 +647,12 @@ if (registrationComplete) {
   : "Submit Registration"}
 </button>
 
-  </section>
+</section>
 )}
 
-</section>
+ </section>
+
+
 <div className="mt-8 rounded-3xl bg-white/10 border border-yellow-400/20 backdrop-blur-md p-8">
 
   <h2 className="text-3xl font-bold text-yellow-400 mb-6">

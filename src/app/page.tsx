@@ -367,7 +367,7 @@ Training with purpose, playing with respect, and learning from every match.  </p
         Santhosh
     </h3>
     <p className="text-xl text-gray-700 mt-2 font-bold">
-        Opposite Hitter
+        Setter
     </p>
 </div>
      </div>
