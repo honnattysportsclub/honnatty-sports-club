@@ -40,8 +40,9 @@ const copyUpiId = async () => {
     useEffect(() => {
   async function fetchRegisteredCount() {
     const { count } = await supabase
-      .from("Registerations")
-      .select("*", { count: "exact", head: true });
+  .from("Registerations")
+  .select("*", { count: "exact", head: true })
+  .eq("status", "Approved");
 
     setRegisteredCount(count || 0);
   }
@@ -106,7 +107,8 @@ if (existingTeam) {
   setLoading(true);
 const { count } = await supabase
   .from("Registerations")
-  .select("*", { count: "exact", head: true });
+  .select("*", { count: "exact", head: true })
+  .eq("status", "Approved");
 
 if ((count ?? 0) >= 14) {
   setErrorMessage("🚫 Registration is full. No more teams can register.");
@@ -142,7 +144,6 @@ return;
     setErrorMessage("❌ Registration failed. Please try again.");
 setSuccessMessage("");
   } else {
-  setRegisteredCount((prev) => prev + 1);
   setSuccessMessage(
   "🎉 Registration submitted successfully!\n\n" +
   "Your registration has been received.\n\n" +
@@ -230,7 +231,7 @@ if (registrationComplete) {
   <div className="mt-12 rounded-3xl bg-white/10 border border-yellow-400/20 backdrop-blur-md p-8">
 
     <h2 className="text-3xl font-bold text-yellow-400">
-      Honnatty District-Level Volleyball Tournament 2026
+      Honnatty Volleyball Tournament 2026 – District Level
     </h2>
 
     <div className="mt-6 space-y-4 text-white">
@@ -239,7 +240,7 @@ if (registrationComplete) {
 
       <p>📍 <strong>Venue:</strong> Honnatty Sports Arena</p>
 
-      <p>👥 <strong>Category:</strong> Men's Open</p>
+      <p>👥 <strong>Category:</strong> Men </p>
 
 
       <p>🏆 <strong>Prizes:</strong> Trophies & Medals</p>

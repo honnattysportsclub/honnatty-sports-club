@@ -114,7 +114,7 @@ Registration closes on 5 August 2026 or when all 16 slots are filled—
     <div className="mt-6 space-y-3 text-white text-lg">
       <p>📅 15-16 August 2026</p>
       <p>👥 Only 16 teams accepted</p>
-      <p>👥 Home tems only</p>
+      <p>👥 Home teams only</p>
     </div>
 <p className="mt-4 rounded-lg bg-yellow-400/10 border border-yellow-400/30 px-4 py-2 text-sm text-yellow-200">
   📌 Registration closes when all 16 slots are filled.

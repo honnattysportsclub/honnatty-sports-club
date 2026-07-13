@@ -317,7 +317,7 @@ Training with purpose, playing with respect, and learning from every match.  </p
 <div className="bg-white text-green-900 rounded-3xl overflow-hidden shadow-xl">
         <div className="relative h-80">
   <Image
-    src="/team/.jpeg"
+    src="/team/jns.jpeg"
     alt="Captain"
     fill
     className="object-cover"
@@ -519,11 +519,63 @@ Training with purpose, playing with respect, and learning from every match.  </p
 
       <div className="bg-yellow-50 border-2 border-yellow-200 rounded-3xl h-72 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center justify-center">
 
-  <div className="text-6xl mb-4">📸</div>
+  <div className="relative w-full h-full">
+  <Image
+    src="/gallery/1.jpeg"
+    alt="Tournament Photo"
+    fill
+    className="object-cover rounded-3xl"
+  />
+</div>
 
-  <p className="text-green-900 font-semibold">
-    Tournament Photo
-  </p>
+</div>
+
+      <div className="bg-yellow-50 border-2 border-yellow-200 rounded-3xl h-72 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center justify-center">
+
+  <div className="relative w-full h-full">
+  <Image
+    src="/gallery/2.jpeg"
+    alt="Tournament Photo"
+    fill
+    className="object-cover rounded-3xl"
+  />
+</div>
+
+</div>
+ <div className="bg-yellow-50 border-2 border-yellow-200 rounded-3xl h-72 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center justify-center">
+
+  <div className="relative w-full h-full">
+  <Image
+    src="/gallery/3.jpeg"
+    alt="Tournament Photo"
+    fill
+    className="object-cover rounded-3xl"
+  />
+</div>
+
+</div>
+ <div className="bg-yellow-50 border-2 border-yellow-200 rounded-3xl h-72 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center justify-center">
+
+  <div className="relative w-full h-full">
+  <Image
+    src="/gallery/4.jpeg"
+    alt="Tournament Photo"
+    fill
+    className="object-cover rounded-3xl"
+  />
+</div>
+
+</div>
+ <div className="bg-yellow-50 border-2 border-yellow-200 rounded-3xl h-72 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center justify-center">
+
+  <div className="relative w-full h-full">
+  <Image
+    src="/gallery/5.jpeg"
+    alt="Tournament Photo"
+    fill
+    className="object-cover rounded-3xl"
+  />
+</div>
 
 </div>
 
@@ -531,25 +583,21 @@ Training with purpose, playing with respect, and learning from every match.  </p
 
   <div className="text-6xl mb-4">📸</div>
 
-  <p className="text-green-900 font-semibold">
-    Tournament Photo
-  </p>
-
+   <div className="relative w-full h-full">
+  <Image
+    src="/gallery/6.jpeg"
+    alt="Tournament Photo"
+    fill
+    className="object-cover rounded-3xl"
+  />
 </div>
-
-      <div className="bg-yellow-50 border-2 border-yellow-200 rounded-3xl h-72 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center justify-center">
-
-  <div className="text-6xl mb-4">📸</div>
-
-  <p className="text-green-900 font-semibold">
-    Tournament Photo
-  </p>
 
 </div>
 
     </div>
 
   </div>
+  
   {/* Footer */}
 
 <footer className="bg-green-950 text-white py-16">
