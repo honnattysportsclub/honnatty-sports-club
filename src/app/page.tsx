@@ -581,7 +581,7 @@ Training with purpose, playing with respect, and learning from every match.  </p
 
       <div className="bg-yellow-50 border-2 border-yellow-200 rounded-3xl h-72 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center justify-center">
 
-  <div className="text-6xl mb-4">📸</div>
+
 
    <div className="relative w-full h-full">
   <Image
