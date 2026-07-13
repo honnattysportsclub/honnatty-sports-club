@@ -243,7 +243,7 @@ if (registrationComplete) {
       <p>👥 <strong>Category:</strong> Men </p>
 
 
-      <p>🏆 <strong>Prizes:</strong> Trophies & Medals</p>
+      <p>🏆 <strong>Prizes:</strong> Cash, Trophies & Medals</p>
 
       <p>💰 <strong>Entry Fee:</strong> ₹1,200</p>
 
